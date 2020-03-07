@@ -710,7 +710,7 @@ class Vanilla_1_14(VanillaBase):
 
     @classmethod
     def name(self):
-        return "vanilla 1.13"
+        return "vanilla 1.14"
 
     def default_url(self):
         return "https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar"
@@ -723,6 +723,19 @@ class Vanilla_1_14(VanillaBase):
 
     def log_error_re(self):
         return re.compile(".* \[SEVERE\] .*", re.MULTILINE)
+
+
+class Vanilla_1_15(Vanilla_1_14):
+
+    @classmethod
+    def name(self):
+        return "vanilla 1.15"
+
+    def default_url(self):
+        return "https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar"
+
+    def log_start_re(self):
+        return re.compile("^.*Starting minecraft server version 1\.15.*")
 
 
 # MinecraftForge
@@ -1240,6 +1253,7 @@ class ServerManager(object):
             Vanilla_1_12,
             Vanilla_1_13,
             Vanilla_1_14,
+            Vanilla_1_15,
             MinecraftForge_1_6,
             MinecraftForge_1_7,
             MinecraftForge_1_8,
